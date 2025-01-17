@@ -5,25 +5,45 @@ A TypeScript class for validating [PESEL](https://en.wikipedia.org/wiki/PESEL) n
 ## Usage
 
 ```typescript
+import {Pesel} from './Pesel.ts';
 let pesel = '29511300014';
-const p = new Pesel(pesel);
+let language = 'en';
+const p = new Pesel(pesel, language);
 ```
 ## Methods
+
+### isValid
 
 ```typescript
 p.isValid();
 ```
-output: `true`
+output:
+
+`true`
+
+### info
 
 ```typescript
 p.info();
 ```
-output: `The PESEL number is correct. It is a man born on Sunday, November 13, 2129.`
+output:
+
+`The PESEL number is correct. It is a man born on Sunday, November 13, 2129.`
+
+### printData
 
 ```typescript
 p.printData();
 ```
 print all properties in `console`.
+
+## returnJson
+
+```typescript
+p.returnJson();
+```
+
+return all properties as JSON.
 
 ## Properties
 
