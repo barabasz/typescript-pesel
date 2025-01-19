@@ -42,12 +42,12 @@ p1.print();              // print all properties to the console
 
 The [Pesel](Pesel.ts) class has the following public methods:
 
-- `valid()` - _boolean_ on whether the PESEL is valid 
-- `info()` - _string_ indicating whether the PESEL is valid 
-- `date()` - _string_ in 'YYYY-MM-DD' format on valid PESEL, _null_ otherwise
-- `error()` - _null_ on valid PESEL, _string_ with explanation of invalidity otherwise
-- `json()` - _null_ on invalid PESEL, _string_ as JSON with all properties otherwise
-- `print()` - _void_ print all properties to the console
+- `valid()` - _boolean_: whether the PESEL is valid,
+- `info()` - _string_: human-redeable message whether the PESEL is valid,
+- `date()` - _string_ in 'YYYY-MM-DD' format on valid PESEL or _null_ otherwise,
+- `error()` - _null_ on valid PESEL, _string_ with explanation of invalidity otherwise,
+- `json()` - _string_ as JSON with all properties on valid PESEL or _null_ otherwise,
+- `print()` - _void_ print all properties to the console.
 
 ## Properties
 
