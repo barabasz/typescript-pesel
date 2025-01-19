@@ -8,6 +8,7 @@ const p1 = new Pesel.Check(pesel, language);
 console.log(p1.valid()); // true
 console.log(p1.info());  // 'the PESEL number is valid ✅'
 console.log(p1.date());  // '2129-11-13'
+console.log(p1.verdict());  // '2129-11-13'
 console.log(p1.error()); // null
 
 // invalid PESEL

@@ -16,26 +16,28 @@ let language = 'en';
 let pesel = '29511300014';
 const p1 = new Pesel.Pesel(pesel, language);
 
-console.log(p1.valid()); // true
-console.log(p1.info());  // 'the PESEL number is valid ✅....'
-console.log(p1.date());  // '2129-11-13'
-console.log(p1.error()); // null
+console.log(p1.valid());   // true
+console.log(p1.verdict()); // 'the PESEL number is valid ✅....'
+console.log(p1.info());    // 'It is a man born on Sunday, November 13, 2129'
+console.log(p1.date());    // '2129-11-13'
+console.log(p1.error());   // null
 
 // invalid PESEL
 pesel = '29513300014';
 const p2 = new Pesel.Pesel(pesel, language);
 
-console.log(p2.valid()); // false
-console.log(p2.info());  // 'the PESEL number is invalid ⛔'
-console.log(p2.date());  // null
-console.log(p2.error()); // 'incorrect date (2129-11-33)'
+console.log(p2.valid());   // false
+console.log(p1.verdict()); // 'the PESEL number is invalid ⛔'
+console.log(p2.info());    // null
+console.log(p2.date());    // null
+console.log(p2.error());   // 'incorrect date (2129-11-33)'
 ```
 
 You can also:
 
 ```typescript
-console.log(p1.json());  // {get string as JSON with all properties}
-p1.print();              // print all properties to the console
+console.log(p1.json());    // {get string as JSON with all properties}
+p1.print();                // print all properties to the console
 ```
 
 ## Methods
@@ -44,7 +46,8 @@ The [Pesel](./bin/Pesel.ts) class has the following public methods:
 
 - `date()` - _string_ in 'YYYY-MM-DD' format on valid PESEL or _null_ otherwise,
 - `error()` - _null_ on valid PESEL, _string_ with explanation of invalidity otherwise,
-- `info()` - _string_: human-readable message whether the PESEL is valid,
+- `verdict()` - _string_: human-readable message whether the PESEL is valid,
+- `info()` - _string_: human-readable message on person with this PESEL,
 - `json()` - _string_ as JSON with all properties on valid PESEL or _null_ otherwise,
 - `print()` - _void_ print all properties to the console,
 - `valid()` - _boolean_: whether the PESEL is valid.
@@ -55,12 +58,17 @@ The [PeselProperties](./bin/Pesel.ts) class has the following properties:
 
 ### Properties always present
 
+- `icon` - _string_: ✅ or ⛔,
 - `isValid` - _boolean_: whether the PESEL is valid,
 - `lang` - _string_: two-letter language,
 - `value` - _string_: trimmed input value,
 - `verdict` - _string_: info on whether the PESEL is valid.
 
-### Properties present on valid PESELs only
+### Properties additionally present on invalid PESELs only
+
+- `error` - _string_: Validation error cause
+
+### Properties additionally present on valid PESELs only
 
 - `century` - _integer_: first two digits from year,
 - `checksum` - _integer_: checksum (last digit),

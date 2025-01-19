@@ -16,22 +16,28 @@ let language = 'en';
 let pesel = '29511300014';
 const p1 = new Pesel.Pesel(pesel, language);
 
-console.log(p1.valid()); // true
-console.log(p1.info());  // 'numer PESEL jest poprawny ✅'
-console.log(p1.date());  // '2129-11-13'
-console.log(p1.error()); // null
-console.log(p1.json());  // {string w formacie JSON ze wszystkimi właściwościami}
-p1.print();              // drukuje wszystkie właściwości do konsoli
-
+console.log(p1.valid());   // true
+console.log(p1.verdict()); // 'numer PESEL jest poprawny ✅'
+console.log(p1.info());    // 'To jest mężczyzna urodzony w niedzielę 13 listopada 2129.'
+console.log(p1.date());    // '2129-11-13'
+console.log(p1.error());   // null
 
 // niepoprawny PESEL
 pesel = '29513300014';
 const p2 = new Pesel.Pesel(pesel, language);
 
-console.log(p2.valid()); // true
-console.log(p2.info());  // 'numer PESEL nie jest poprawny ⛔'
-console.log(p2.date());  // 'niepoprawna data (2129-11-33)'
-console.log(p2.error()); // null
+console.log(p2.valid());   // true
+console.log(p2.verdict()); // 'numer PESEL nie jest poprawny ⛔'
+console.log(p2.info());    // null
+console.log(p2.date());    // null
+console.log(p2.error());   // 'niepoprawna data (2129-11-33)'
+```
+
+Można również: 
+
+```typescript
+console.log(p1.json());    // {string w formacie JSON ze wszystkimi właściwościami}
+p1.print();                // drukuje wszystkie właściwości do konsoli
 ```
 
 ## Metody
@@ -40,7 +46,8 @@ Klasa [Pesel](./bin/Pesel.ts) posiada następujące publiczne metody:
 
 - `date()` - _string_: data z numeru PESEL w formacie 'YYYY-MM-DD' lub _null_, jeśli PESEL nieprawidłowy,
 - `error()` - _string_: wyjaśnienie niepoprawności numeru lub _null_, jeśli PESEL prawidłowy,
-- `info()` - _string_: czytelna informacja, czy PESEL jest poprawny,
+- `verdict()` - _string_: czytelna informacja, czy PESEL jest poprawny,
+- `info()` - _string_: informacja o osobie posiadającej taki PESEL,
 - `json()` - _string_: JSON ze wszystkimi właściwościami lub _null_, jeśli PESEL nieprawidłowy,
 - `print()` - _void_: drukuje wszystkie właściwości do konsoli,
 - `valid()` - _boolean_: czy PESEL jest poprawny.
@@ -51,12 +58,17 @@ Klasa [PeselProperties](./bin/Pesel.ts) ma następujące właściwości:
 
 ### Właściwości zawsze obecne
 
+- `icon` - _string_: ✅ lub ⛔,
 - `isValid` - _boolean_: czy PESEL jest prawidłowy,
 - `lang` - _string_: dwuliterowy kod języka,
 - `value` - _string_: przycięty wprowadzony numer,
 - `verdict` - _string_: informacja, czy PESEL jest prawidłowy.
 
-### Właściwości obecne przy poprawnym numerze
+### Właściwości dodatkowo obecne przy błędnym numerze
+
+- `error` - _string_: przyczyna błędu
+
+### Właściwości dodatkowo obecne przy poprawnym numerze
 
 - `century` - _integer_: jedna lub dwie ostatnie cyfry z roku,
 - `checksum` - _integer_: suma kontrolna (ostatnia cyfra),

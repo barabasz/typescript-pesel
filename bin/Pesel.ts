@@ -122,6 +122,7 @@ export namespace Pesel {
             i += this.dict.dowAcc[this.pesel.dow];
             i += (this.pesel.lang == 'en') ? ", " : " ";
             i += this.pesel.dateLong;
+            i += (this.pesel.lang == 'en') ? "" : ".";
             return this.cfl(i);
         }
 
@@ -165,9 +166,17 @@ export namespace Pesel {
         public valid(): boolean {
             return this.pesel.isValid;
         }
-        
-        public info(): string {
+
+        public verdict(): string {
             return this.pesel.verdict;
+        }
+
+        public info(): string {
+            if (this.pesel.isValid) {
+                return this.pesel.info;;
+            } else {
+                return null;
+            }
         }
 
         public date(): string | null {
@@ -191,7 +200,7 @@ export namespace Pesel {
         }
 
         public print(): void {
-            console.log(this.pesel);
+            console.log(this.json());
         }
 
     }
