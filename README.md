@@ -6,35 +6,38 @@ A TypeScript class for validating [PESEL](https://en.wikipedia.org/wiki/PESEL) n
 
 ```typescript
 import {Pesel} from './Pesel.ts';
-let pesel = '29511300014';
 let language = 'en';
-const p1 = new Pesel(pesel, language);
 
-console.log(p.valid()); // _true_
-console.log(p.info()); // 'the PESEL number is correct'
-console.log(p.date()); // '2129-11-13'
-console.log(p.error()); // null
+// valid PESEL
+let pesel = '29511300014';
+const p1 = new Pesel.Pesel(pesel, language);
+
+console.log(p1.valid()); // true
+console.log(p1.info());  // 'the PESEL number is correct'
+console.log(p1.date());  // '2129-11-13'
+console.log(p1.error()); // null
+console.log(p1.json());  // {get all properties as JSON}
+p1.print();              // print all properties to the console
+
+
+// invalid PESEL
+pesel = '29513300014';
+const p2 = new Pesel.Pesel(pesel, language);
+
+console.log(p2.valid()); // true
+console.log(p2.info());  // 'the PESEL number is correct'
+console.log(p2.date());  // '2129-11-13'
+console.log(p2.error()); // null
 ```
 
 ## Methods
 
-### isValid
-
-```typescript
-p.isValid();
-```
-output:
-
-`true`
-
-### info
-
-```typescript
-p.info();
-```
-output:
-
-`The PESEL number is correct. It is a man born on Sunday, November 13, 2129.`
+- *valid()* - boolean
+- info() - string
+- date() - _string_ in 'YYYY-MM-DD' format on valid PESEL, _null_ otherwise
+- error() - _null_ on valid PESEL, _string_ with explanation of invalidity otherwise
+- json() - _null_ on invalid PESEL, _string_ as JSON with all properties otherwise
+- print() - 
 
 ### printData
 
