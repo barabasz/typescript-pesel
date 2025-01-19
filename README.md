@@ -1,6 +1,8 @@
 # PESEL
 
-A very simple TypeScript class for validating [PESEL](https://en.wikipedia.org/wiki/PESEL) numbers - national identification numbers used in Poland since 1979. See 🇵🇱 Polish readme.
+A very simple TypeScript class for validating [PESEL](https://en.wikipedia.org/wiki/PESEL) numbers - national identification numbers used in Poland since 1979.
+
+Zobacz 🇵🇱 [readme w języku polskim](README_pl.md).
 
 ## Usage
 
