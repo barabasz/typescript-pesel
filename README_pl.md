@@ -2,6 +2,8 @@
 
 Bardzo prosta klasa w TypeScript do określania poprawności numeru [PESEL](https://pl.wikipedia.org/wiki/PESEL) - Powszechnego Elektronicznego Systemu Ewidencji Ludności używanego w Polsce od 1979.
 
+Numer PESEL obsługuje daty urodzin od `1800-01-01` do `2299-12-31` (`YYYY-MM-DD`), zawiera numer seryjny, informację o płci urodzonej osoby oraz sumę kontrolną.
+
 See 🇵🇱 [English readme file](README.md).
 
 ## Użycie
@@ -36,12 +38,12 @@ console.log(p2.error()); // null
 
 Klasa [Pesel](Pesel.ts) podiada nastepujące publiczne metody:
 
-- `valid()` - _boolean_ on whether the PESEL is valid 
-- `info()` - _string_ indicating whether the PESEL is valid 
-- `date()` - _string_ in 'YYYY-MM-DD' format on valid PESEL, _null_ otherwise
-- `error()` - _null_ on valid PESEL, _string_ with explanation of invalidity otherwise
-- `json()` - _null_ on invalid PESEL, _string_ as JSON with all properties otherwise
-- `print()` - _void_ print all properties to the console
+- `valid()` - _boolean_: czy PESEL jest poprawny, 
+- `info()` - _string_: innformacja, czy PESEL jest poprawny, 
+- `date()` - _string_: data z numeru PESEL w formacie 'YYYY-MM-DD' lub _null_ jeśli PESEL nieprawidłowy,
+- `error()` - _string_: wyjaśnienie niepoprawności numeru lub _null_ jeśli PESEL prawidłowy,
+- `json()` - _string_: JSON ze wszystkimi właściwościami lub _null_ jeśli PESEL nieprawidłowy,
+- `print()` - _void_: drukuje wszystkie właściwości do konsoli.
 
 ## Właściwości
 
@@ -49,31 +51,31 @@ Klasa [PeselProperties](Pesel.ts) podiada nastepujące właściwości:
 
 ### Właściwości zawsze obecne
 
-- `value` - _string_: trimmed input value,
-- `lang` - _string_: two-letter language,
-- `isValid` - _boolean_: whether the PESEL is valid ,
-- `verdict` - _string_: info on whether the PESEL is valid,
+- `value` - _string_: przycięty wprowadzony numer,
+- `lang` - _string_: dwuliterowy kod języka,
+- `isValid` - _boolean_: czy PESEL jest prawidłowy,
+- `verdict` - _string_: informacja, czy pesej jest prawidłowy.
 
 ### Właściowści obecne przy poprawnym numerze
 
-- `yearShort` - _string_: last two digits from year,
-- `century` - _integer_: first two digits from year,
-- `year` - _integer_: year from birthdate,
-- `month` - ,
-- `monthInt` - _integer_: month from birthdate,
-- `monthName` - ,
-- `day` - ,
-- `dayInt` - _integer_: day from birthdate,
-- `date` - _string_: birthdate in `YYYY-MM-DD` format,
-- `dateLong` - _string_: birthdate in long date format,
-- `dateObj` - `Date` object,
-- `dow` - _integer_: day of week from birthdate (`0` = Sunday),
-- `dowName` - _string_: day of week from birthdate,
-- `serial` - _string_: serial number (including sex value),
-- `sex` - _string_: sex (`male`/`female`),
-- `sexName` - _string_: sex (male/female),
-- `checksum` - _integer_: checksum (last digit),
-- `info` - _string_: human-readable info on PESEL.
+- `yearShort` - _string_: dwie ostatnie cyfry z roku,
+- `century` - _integer_: jedna lub dwie ostatnie cyfry z roku,
+- `year` - _integer_: rok z daty urodzin,
+- `month` - _string_: miesiąc z daty urodzin,
+- `monthInt` - _integer_: miesiąc z daty urodzin,
+- `monthName` - _string_: miesiąc z daty urodzin,
+- `day` - _string_: dwuznakowy dzień z daty urodzin,
+- `dayInt` - _integer_: dzień z daty urodzin,
+- `date` - _string_: urodziny w formacie `YYYY-MM-DD`,
+- `dateLong` - _string_: urodziny w długim formacie,
+- `dateObj` - obiekt klasy `Date` z datą urodzin,
+- `dow` - _integer_: dzień tygodnia z daty urodzin (`0` = niedziela),
+- `dowName` - _string_: dzień tygodnia z daty urodzin,
+- `serial` - _string_: numer seryjny (z informacją o płci),
+- `sex` - _string_: płeć (`male`/`female`),
+- `sexName` - _string_: płeć,
+- `checksum` - _integer_: suma kontrolna (ostatnia cyfra),
+- `info` - _string_: szczegółowa informacja o osobie z takim numerem PESEL.
 
 ### Właściwości wydrukowane do konsoli
 
