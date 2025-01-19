@@ -36,7 +36,7 @@ console.log(p2.error()); // null
 
 ## Metody
 
-Klasa [Pesel](Pesel.ts) podiada nastepujące publiczne metody:
+Klasa [Pesel](./bin/Pesel.ts) podiada nastepujące publiczne metody:
 
 - `valid()` - _boolean_: czy PESEL jest poprawny, 
 - `info()` - _string_: innformacja, czy PESEL jest poprawny, 
@@ -47,7 +47,7 @@ Klasa [Pesel](Pesel.ts) podiada nastepujące publiczne metody:
 
 ## Właściwości
 
-Klasa [PeselProperties](Pesel.ts) podiada nastepujące właściwości:
+Klasa [PeselProperties](./bin/Pesel.ts) podiada nastepujące właściwości:
 
 ### Właściwości zawsze obecne
 
