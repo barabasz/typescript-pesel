@@ -10,7 +10,7 @@ let pesel = '29511300014';
 let language = 'en';
 const p1 = new Pesel(pesel, language);
 
-console.log(p.valid()); // true
+console.log(p.valid()); // _true_
 console.log(p.info()); // 'the PESEL number is correct'
 console.log(p.date()); // '2129-11-13'
 console.log(p.error()); // null
