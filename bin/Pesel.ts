@@ -185,11 +185,11 @@ export module Pesel {
             }
         }
 
-        public returnJson(): string {
+        public json(): string {
             return JSON.stringify(this.pesel, null, 2);
         }
 
-        public printData(): void {
+        public print(): void {
             console.log(this.pesel);
         }
 
@@ -259,29 +259,29 @@ export module Pesel {
 
     export class PeselProperties {
 
-        value: string;
-        lang: string;
-        isValid!: boolean;
-        verdict!: string;
         century!: number;
-        yearShort!: string;
-        year!: number;
+        checksum!: number;
+        date!: string;
+        dateLong!: string;
+        dateObj!: Date;
+        day!: string;
+        dayInt!: number;
+        dow!: number;
+        dowName!: string;
+        info!: string;
+        isValid!: boolean;
+        lang: string;
         month!: string;
         monthInt!: number;
         monthName!: string;
-        day!: string;
-        dayInt!: number;
-        date!: string;
-        dateObj!: Date;
-        dow!: number;
-        dowName!: string;
-        dateLong!: string;
+        reason!: string;
         serial!: string;
         sex!: string;
         sexName!: string;
-        checksum!: number;
-        info!: string;
-        reason!: string;
+        value: string;
+        verdict!: string;
+        year!: number;
+        yearShort!: string;
 
         constructor(pesel: string, language: string) {
             const lang: string = language.toLowerCase();
