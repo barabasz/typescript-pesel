@@ -51,7 +51,7 @@ The [Pesel](Pesel.ts) class has the following public methods:
 
 ## Properties
 
-The [PeselProperties](Pesel.ts) class has the following properties:
+The [PeselProperties](bin/Pesel.ts) class has the following properties:
 
 ### Properties always present
 
