@@ -39,7 +39,7 @@ console.log(p2.error()); // null
 Klasa [Pesel](./bin/Pesel.ts) podiada nastepujące publiczne metody:
 
 - `valid()` - _boolean_: czy PESEL jest poprawny, 
-- `info()` - _string_: innformacja, czy PESEL jest poprawny, 
+- `info()` - _string_: czytelna informacja, czy PESEL jest poprawny, 
 - `date()` - _string_: data z numeru PESEL w formacie 'YYYY-MM-DD' lub _null_ jeśli PESEL nieprawidłowy,
 - `error()` - _string_: wyjaśnienie niepoprawności numeru lub _null_ jeśli PESEL prawidłowy,
 - `json()` - _string_: JSON ze wszystkimi właściwościami lub _null_ jeśli PESEL nieprawidłowy,
