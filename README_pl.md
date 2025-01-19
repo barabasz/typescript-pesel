@@ -1,6 +1,6 @@
 # PESEL
 
-Bardzo prosta klasa w TypeScript do określania poprawności numeru [PESEL](https://pl.wikipedia.org/wiki/PESEL) - Powszechnego Elektronicznego Systemu Ewidencji Ludności używanego w Polsce od 1979.
+Bardzo prosta klasa w TypeScript do określania poprawności numeru [PESEL](https://pl.wikipedia.org/wiki/PESEL) - Powszechnego Elektronicznego Systemu Ewidencji Ludności używanego w Polsce od 1979. Ta klasa nie ma żadnych zależności zewnętrznych.
 
 Numer PESEL obsługuje daty urodzin od `1800-01-01` do `2299-12-31` (`YYYY-MM-DD`), zawiera numer seryjny, informację o płci urodzonej osoby oraz sumę kontrolną.
 
