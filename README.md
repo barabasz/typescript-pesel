@@ -2,7 +2,9 @@
 
 A very simple TypeScript class for validating [PESEL](https://en.wikipedia.org/wiki/PESEL) numbers - national identification numbers used in Poland since 1979.
 
-Zobacz 🇵🇱 [readme w języku polskim](README_pl.md).
+The PESEL number supports birth dates from `1800-01-01` to `2299-12-31` (`YYYY-MM-DD`), contains a serial number, information on the gender of the born person and a checksum.
+
+🇵🇱 Zobacz [readme w języku polskim](README_pl.md).
 
 ## Usage
 
