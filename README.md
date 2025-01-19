@@ -1,6 +1,6 @@
 # PESEL
 
-A very simple TypeScript class for validating [PESEL](https://en.wikipedia.org/wiki/PESEL) numbers - national identification numbers used in Poland since 1979.
+A very simple TypeScript class for validating [PESEL](https://en.wikipedia.org/wiki/PESEL) numbers - national identification numbers used in Poland since 1979. See 🇵🇱 Polish readme.
 
 ## Usage
 
@@ -96,8 +96,7 @@ PeselProperties {
   sex: 'male',
   sexName: 'man',
   checksum: 4,
-  info: 'It is a man born on Sunday, November 13, 2129',
-  __proto__: { constructor: ƒ PeselProperties() }
+  info: 'It is a man born on Sunday, November 13, 2129'
 }
 ```
 
@@ -109,7 +108,6 @@ PeselProperties {
   lang: 'en',
   reason: 'incorrect date (2129-11-33)',
   isValid: false,
-  verdict: 'the PESEL number is invalid',
-  __proto__: { constructor: ƒ PeselProperties() }
+  verdict: 'the PESEL number is invalid'
 }
 ```
