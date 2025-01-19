@@ -10,7 +10,7 @@ The PESEL number supports birthdays from `1800-01-01` to `2299-12-31` (`YYYY-MM-
 
 ```typescript
 import {Pesel} from './Pesel.ts';
-let language = 'en';
+let language = 'en';      // supported languages: 'en' (English) and 'pl' (Polish)
 
 // valid PESEL
 let pesel = '29511300014';

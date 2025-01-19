@@ -122,7 +122,7 @@ export namespace Pesel {
             i += this.dict.dowAcc[this.pesel.dow];
             i += (this.pesel.lang == 'en') ? ", " : " ";
             i += this.pesel.dateLong;
-            i += (this.pesel.lang == 'en') ? "" : ".";
+            i += (this.pesel.lang == 'en') ? "." : " r.";
             return this.cfl(i);
         }
 
@@ -173,7 +173,7 @@ export namespace Pesel {
 
         public info(): string {
             if (this.pesel.isValid) {
-                return this.pesel.info;;
+                return this.pesel.info;
             } else {
                 return null;
             }

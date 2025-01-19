@@ -10,7 +10,7 @@ Numer PESEL obsługuje daty urodzin od `1800-01-01` do `2299-12-31` (`YYYY-MM-DD
 
 ```typescript
 import {Pesel} from './Pesel.ts';
-let language = 'en';
+let language = 'pl';      // obsługiwane języki: 'pl' (polski) i 'en' (angielski)
 
 // poprawny PESEL
 let pesel = '29511300014';
@@ -18,7 +18,7 @@ const p1 = new Pesel.Pesel(pesel, language);
 
 console.log(p1.valid());   // true
 console.log(p1.verdict()); // 'numer PESEL jest poprawny ✅'
-console.log(p1.info());    // 'To jest mężczyzna urodzony w niedzielę 13 listopada 2129.'
+console.log(p1.info());    // 'To jest mężczyzna urodzony w niedzielę 13 listopada 2129 r.'
 console.log(p1.date());    // '2129-11-13'
 console.log(p1.error());   // null
 
@@ -96,28 +96,29 @@ Klasa [PeselProperties](./bin/Pesel.ts) ma następujące właściwości:
 
 ```javascript
 PeselProperties = {
+    icon: '✅',
     value: '29511300014',
-    lang: 'en',
+    lang: 'pl',
     isValid: true,
-    verdict: 'the PESEL number is valid',
+    verdict: 'numer PESEL jest poprawny',
     yearShort: '29',
     century: 21,
     year: 2129,
     month: '11',
     monthInt: 11,
-    monthName: 'November',
+    monthName: 'listopad',
     day: '13',
     dayInt: 13,
     date: '2129-11-13',
-    dateLong: 'November 13, 2129',
+    dateLong: '13 listopada 2129',
     dateObj: '2129-11-13T00:00:00.000Z',
     dow: 0,
-    dowName: 'Sunday',
+    dowName: 'niedziela',
     serial: '0001',
     sex: 'male',
-    sexName: 'man',
+    sexName: 'mężczyzna',
     checksum: 4,
-    info: 'It is a man born on Sunday, November 13, 2129'
+    info: 'To jest mężczyzna urodzony w niedzielę 13 listopada 2129 r.'
 }
 ```
 
@@ -127,9 +128,9 @@ PeselProperties = {
 PeselProperties =  {
     icon: '⛔',
     isValid: false,
-    lang: 'en',
-    error: 'incorrect date (2129-11-33)',
+    lang: 'pl',
+    error: '"niepoprawna data (2129-11-33)',
     value: '29513300014',
-    verdict: 'the PESEL number is invalid'
+    verdict: '"numer PESEL nie jest poprawny'
 }
 ```
