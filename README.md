@@ -8,8 +8,14 @@ A TypeScript class for validating [PESEL](https://en.wikipedia.org/wiki/PESEL) n
 import {Pesel} from './Pesel.ts';
 let pesel = '29511300014';
 let language = 'en';
-const p = new Pesel(pesel, language);
+const p1 = new Pesel(pesel, language);
+
+console.log(p.valid()); // true
+console.log(p.info()); // 'the PESEL number is correct'
+console.log(p.date()); // '2129-11-13'
+console.log(p.error()); // null
 ```
+
 ## Methods
 
 ### isValid
