@@ -40,7 +40,7 @@ p1.print();              // print all properties to the console
 
 ## Methods
 
-The [Pesel](Pesel.ts) class has the following public methods:
+The [Pesel](./bin/Pesel.ts) class has the following public methods:
 
 - `valid()` - _boolean_: whether the PESEL is valid,
 - `info()` - _string_: human-redeable message whether the PESEL is valid,
@@ -51,7 +51,7 @@ The [Pesel](Pesel.ts) class has the following public methods:
 
 ## Properties
 
-The [PeselProperties](bin/Pesel.ts) class has the following properties:
+The [PeselProperties](./bin/Pesel.ts) class has the following properties:
 
 ### Properties always present
 
