@@ -45,6 +45,8 @@ Klasa [Pesel](Pesel.ts) podiada nastepujące publiczne metody:
 
 ## Właściwości
 
+Klasa [PeselProperties](Pesel.ts) podiada nastepujące właściwości:
+
 ### Właściwości zawsze obecne
 
 - `value` - _string_: trimmed input value,
