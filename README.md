@@ -88,28 +88,30 @@ The [PeselProperties](./bin/Pesel.ts) class has the following properties:
 
 ```javascript
 let PeselProperties =  {
-    value: '29511300014',
-    lang: 'en',
-    isValid: true,
-    verdict: 'the PESEL number is valid',
-    yearShort: '29',
     century: 21,
-    year: 2129,
-    month: '11',
-    monthInt: 11,
-    monthName: 'November',
-    day: '13',
-    dayInt: 13,
+    checksum: 4,
     date: '2129-11-13',
     dateLong: 'November 13, 2129',
     dateObj: '2129-11-13T00:00:00.000Z',
+    day: '13',
+    dayInt: 13,
     dow: 0,
     dowName: 'Sunday',
+    icon: '✅',
+    info: 'It is a man born on Sunday, November 13, 2129',
+    isValid: true,
+    lang: 'en',
+    month: '11',
+    monthInt: 11,
+    monthName: 'November',
+    reason: undefined,
     serial: '0001',
     sex: 'male',
     sexName: 'man',
-    checksum: 4,
-    info: 'It is a man born on Sunday, November 13, 2129'
+    value: '29511300014',
+    verdict: 'the PESEL number is correct',
+    year: 2129,
+    yearShort: '29'
 }
 ```
 

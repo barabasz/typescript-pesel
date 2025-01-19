@@ -8,19 +8,13 @@ export module Pesel {
         constructor(pesel: string, language: string = "pl") {
             this.pesel = new PeselProperties(pesel, language);
             this.dict = new PeselDict(this.pesel.lang);
-            if (this.hasProperLength()
+            this.pesel.isValid
+                 = this.hasProperLength()
                 && this.hasNoWhitespaces()
                 && this.hasOnlyDigits()
                 && this.hasValidDate()
-                && this.hasValidChecksum()
-            ) {
-                this.pesel.isValid = true;
-                this.setPeselProperties();
-            } else {
-                this.pesel.isValid = false;
-                this.pesel.icon = "⛔";
-                this.pesel.verdict = this.dict.invalid;
-            }
+                && this.hasValidChecksum();
+            this.setPeselProperties();
         }
 
         public cfl(str: string): string {
@@ -30,10 +24,10 @@ export module Pesel {
 
         private hasProperLength(): boolean {
             if (this.pesel.value.length < 11) {
-                this.pesel.reason = this.dict.tooShort;
+                this.pesel.error = this.dict.tooShort;
                 return false;
             } else if (this.pesel.value.length > 11) {
-                this.pesel.reason = this.dict.tooLong;
+                this.pesel.error = this.dict.tooLong;
                 return false;
             } else {
                 return true;
@@ -43,7 +37,7 @@ export module Pesel {
         private hasOnlyDigits(): boolean {
             const regex = /^\d+$/;
             if (!regex.test(this.pesel.value)) {
-                this.pesel.reason = this.dict.notJustDigits;
+                this.pesel.error = this.dict.notJustDigits;
                 return false;
             } else {
                 return true;
@@ -52,7 +46,7 @@ export module Pesel {
 
         private hasNoWhitespaces(): boolean {
             if (/\s/.test(this.pesel.value)) {
-                this.pesel.reason = this.dict.redundantSpaces;
+                this.pesel.error = this.dict.redundantSpaces;
                 return false;
             } else {
                 return true;
@@ -66,14 +60,14 @@ export module Pesel {
             if (!isNaN(dateObj.getFullYear()) && dateObj.toISOString().substring(0, 10) === dateString) {
                 return true;
             } else {
-                this.pesel.reason = `${this.dict.invalidDate} (${dateString})`;
+                this.pesel.error = `${this.dict.invalidDate} (${dateString})`;
                 return false;
             }
         }
 
         private hasValidChecksum(): boolean {
             if (this.calculateChecksum() !== parseInt(this.pesel.value[10], 10)) {
-                this.pesel.reason = this.dict.invalidChecksum;
+                this.pesel.error = this.dict.invalidChecksum;
                 return false;
             } else {
                 return true;
@@ -141,26 +135,31 @@ export module Pesel {
         }
 
         private setPeselProperties(): void {
-            this.pesel.icon = "✅";
-            this.pesel.verdict = this.dict.valid;
-            this.pesel.yearShort = this.pesel.value.substring(0, 2);
-            this.pesel.century = this.getCentury();
-            this.pesel.year = parseInt(this.pesel.century.toString() + this.pesel.yearShort, 10);
-            this.pesel.month = this.getMonth();
-            this.pesel.monthInt = parseInt(this.pesel.month, 10);
-            this.pesel.monthName = this.dict.month[parseInt(this.pesel.month, 10) - 1];
-            this.pesel.day = this.pesel.value.substring(4, 6);
-            this.pesel.dayInt = parseInt(this.pesel.day, 10);
-            this.pesel.date = this.makeIsoDate();
-            this.pesel.dateLong = this.makeLongDate();
-            this.pesel.dateObj = new Date(this.pesel.date);
-            this.pesel.dow = this.pesel.dateObj.getDay();
-            this.pesel.dowName = this.dict.dow[this.pesel.dow];
-            this.pesel.serial = this.pesel.value.substring(6, 10);
-            this.pesel.sex = this.getSex();
-            this.pesel.sexName = (this.pesel.sex == 'male' ? this.dict.male : this.dict.female);
-            this.pesel.checksum = parseInt(this.pesel.value[10], 10);
-            this.pesel.info = this.makeInfo();
+            if (this.pesel.isValid) {
+                this.pesel.icon = "✅";
+                this.pesel.verdict = this.dict.valid;
+                this.pesel.yearShort = this.pesel.value.substring(0, 2);
+                this.pesel.century = this.getCentury();
+                this.pesel.year = parseInt(this.pesel.century.toString() + this.pesel.yearShort, 10);
+                this.pesel.month = this.getMonth();
+                this.pesel.monthInt = parseInt(this.pesel.month, 10);
+                this.pesel.monthName = this.dict.month[parseInt(this.pesel.month, 10) - 1];
+                this.pesel.day = this.pesel.value.substring(4, 6);
+                this.pesel.dayInt = parseInt(this.pesel.day, 10);
+                this.pesel.date = this.makeIsoDate();
+                this.pesel.dateLong = this.makeLongDate();
+                this.pesel.dateObj = new Date(this.pesel.date);
+                this.pesel.dow = this.pesel.dateObj.getDay();
+                this.pesel.dowName = this.dict.dow[this.pesel.dow];
+                this.pesel.serial = this.pesel.value.substring(6, 10);
+                this.pesel.sex = this.getSex();
+                this.pesel.sexName = (this.pesel.sex == 'male' ? this.dict.male : this.dict.female);
+                this.pesel.checksum = parseInt(this.pesel.value[10], 10);
+                this.pesel.info = this.makeInfo();
+            } else {
+                this.pesel.icon = "⛔";
+                this.pesel.verdict = this.dict.invalid;
+            }
         }
 
         public valid(): boolean {
@@ -183,7 +182,7 @@ export module Pesel {
             if (this.pesel.isValid) {
                 return null;
             } else {
-                return this.pesel.reason;
+                return this.pesel.error;
             }
         }
 
@@ -277,7 +276,7 @@ export module Pesel {
         month!: string;
         monthInt!: number;
         monthName!: string;
-        reason!: string;
+        error!: string;
         serial!: string;
         sex!: string;
         sexName!: string;
