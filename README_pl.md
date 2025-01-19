@@ -4,7 +4,7 @@ Bardzo prosta klasa w TypeScript do określania poprawności numeru [PESEL](http
 
 Numer PESEL obsługuje daty urodzin od `1800-01-01` do `2299-12-31` (`YYYY-MM-DD`), zawiera numer seryjny, informację o płci urodzonej osoby oraz sumę kontrolną.
 
-See 🇵🇱 [English readme file](README.md).
+🇬🇧 See [English readme file](README.md).
 
 ## Użycie
 
