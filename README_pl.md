@@ -38,8 +38,8 @@ console.log(p2.error()); // null
 
 Klasa [Pesel](./bin/Pesel.ts) podiada nastepujące publiczne metody:
 
-- `valid()` - _boolean_: czy PESEL jest poprawny, 
-- `info()` - _string_: czytelna informacja, czy PESEL jest poprawny, 
+- `valid()` - _boolean_: czy PESEL jest poprawny,
+- `info()` - _string_: czytelna informacja, czy PESEL jest poprawny,
 - `date()` - _string_: data z numeru PESEL w formacie 'YYYY-MM-DD' lub _null_ jeśli PESEL nieprawidłowy,
 - `error()` - _string_: wyjaśnienie niepoprawności numeru lub _null_ jeśli PESEL prawidłowy,
 - `json()` - _string_: JSON ze wszystkimi właściwościami lub _null_ jeśli PESEL nieprawidłowy,
@@ -83,28 +83,28 @@ Klasa [PeselProperties](./bin/Pesel.ts) podiada nastepujące właściwości:
 
 ```javascript
 PeselProperties {
-  value: '29511300014',
-  lang: 'en',
-  isValid: true,
-  verdict: 'the PESEL number is valid',
-  yearShort: '29',
-  century: 21,
-  year: 2129,
-  month: '11',
-  monthInt: 11,
-  monthName: 'November',
-  day: '13',
-  dayInt: 13,
-  date: '2129-11-13',
-  dateLong: 'November 13, 2129',
-  dateObj: 2129-11-13T00:00:00.000Z,
-  dow: 0,
-  dowName: 'Sunday',
-  serial: '0001',
-  sex: 'male',
-  sexName: 'man',
-  checksum: 4,
-  info: 'It is a man born on Sunday, November 13, 2129'
+    value: '29511300014',
+        lang: 'en',
+        isValid: true,
+        verdict: 'the PESEL number is valid',
+        yearShort: '29',
+        century: 21,
+        year: 2129,
+        month: '11',
+        monthInt: 11,
+        monthName: 'November',
+        day: '13',
+        dayInt: 13,
+        date: '2129-11-13',
+        dateLong: 'November 13, 2129',
+        dateObj: 2129-11-13T00:00:00.000Z,
+        dow: 0,
+        dowName: 'Sunday',
+        serial: '0001',
+        sex: 'male',
+        sexName: 'man',
+        checksum: 4,
+        info: 'It is a man born on Sunday, November 13, 2129'
 }
 ```
 
@@ -112,10 +112,10 @@ PeselProperties {
 
 ```javascript
 PeselProperties {
-  value: '29513300014',
-  lang: 'en',
-  reason: 'incorrect date (2129-11-33)',
-  isValid: false,
-  verdict: 'the PESEL number is invalid'
+    value: '29513300014',
+        lang: 'en',
+        reason: 'incorrect date (2129-11-33)',
+        isValid: false,
+        verdict: 'the PESEL number is invalid'
 }
 ```
