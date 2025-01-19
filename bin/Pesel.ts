@@ -1,6 +1,6 @@
-export module Pesel {
+export namespace Pesel {
 
-    export class Pesel {
+    export class Check {
 
         private readonly pesel: PeselProperties;
         private readonly dict: PeselDict;
@@ -8,7 +8,7 @@ export module Pesel {
         constructor(pesel: string, language: string = "pl") {
             this.pesel = new PeselProperties(pesel, language);
             this.dict = new PeselDict(this.pesel.lang);
-            this.pesel.isValid
+            this.pesel.isValid // main validation
                  = this.hasProperLength()
                 && this.hasNoWhitespaces()
                 && this.hasOnlyDigits()

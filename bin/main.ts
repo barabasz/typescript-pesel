@@ -3,7 +3,7 @@ let language = 'en';
 
 // valid PESEL
 let pesel = '29511300014';
-const p1 = new Pesel.Pesel(pesel, language);
+const p1 = new Pesel.Check(pesel, language);
 
 console.log(p1.valid()); // true
 console.log(p1.info());  // 'the PESEL number is valid ✅'
@@ -12,7 +12,7 @@ console.log(p1.error()); // null
 
 // invalid PESEL
 pesel = '29513300014';
-const p2 = new Pesel.Pesel(pesel, language);
+const p2 = new Pesel.Check(pesel, language);
 
 console.log(p2.valid()); // true
 console.log(p2.info());  // 'the PESEL number is invalid ⛔'
