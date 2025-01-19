@@ -34,6 +34,8 @@ console.log(p2.error()); // null
 
 ## Metody
 
+Klasa [Pesel](Pesel.ts) podiada nastepujące publiczne metody:
+
 - `valid()` - _boolean_ on whether the PESEL is valid 
 - `info()` - _string_ indicating whether the PESEL is valid 
 - `date()` - _string_ in 'YYYY-MM-DD' format on valid PESEL, _null_ otherwise
