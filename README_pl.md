@@ -2,7 +2,7 @@
 
 Bardzo prosta klasa w TypeScript do określania poprawności numeru [PESEL](https://pl.wikipedia.org/wiki/PESEL) - Powszechnego Elektronicznego Systemu Ewidencji Ludności używanego w Polsce od 1979.
 
-See 🇵🇱 Englis readme.
+See 🇵🇱 [English readme file](README.md).
 
 ## Użycie
 
