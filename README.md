@@ -20,18 +20,22 @@ console.log(p1.valid()); // true
 console.log(p1.info());  // 'the PESEL number is correct'
 console.log(p1.date());  // '2129-11-13'
 console.log(p1.error()); // null
-console.log(p1.json());  // {string as JSON with  all properties}
-p1.print();              // print all properties to the console
-
 
 // invalid PESEL
 pesel = '29513300014';
 const p2 = new Pesel.Pesel(pesel, language);
 
-console.log(p2.valid()); // true
-console.log(p2.info());  // 'the PESEL number is correct'
-console.log(p2.date());  // '2129-11-13'
-console.log(p2.error()); // null
+console.log(p2.valid()); // false
+console.log(p2.info());  // 'the PESEL number is invalid'
+console.log(p2.date());  // null
+console.log(p2.error()); // 'incorrect date (2129-11-33)'
+```
+
+You can also:
+
+```typescript
+console.log(p1.json());  // {get string as JSON with all properties}
+p1.print();              // print all properties to the console
 ```
 
 ## Methods
