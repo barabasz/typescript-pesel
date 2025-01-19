@@ -17,7 +17,7 @@ let pesel = '29511300014';
 const p1 = new Pesel.Pesel(pesel, language);
 
 console.log(p1.valid()); // true
-console.log(p1.info());  // 'numer PESEL jest poprawny'
+console.log(p1.info());  // 'numer PESEL jest poprawny ✅'
 console.log(p1.date());  // '2129-11-13'
 console.log(p1.error()); // null
 console.log(p1.json());  // {string w formacie JSON ze wszystkimi właściwościami}
@@ -29,7 +29,7 @@ pesel = '29513300014';
 const p2 = new Pesel.Pesel(pesel, language);
 
 console.log(p2.valid()); // true
-console.log(p2.info());  // 'numer PESEL nie jest poprawny'
+console.log(p2.info());  // 'numer PESEL nie jest poprawny ⛔'
 console.log(p2.date());  // 'niepoprawna data (2129-11-33)'
 console.log(p2.error()); // null
 ```
