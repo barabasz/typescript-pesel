@@ -18,6 +18,7 @@ export module Pesel {
                 this.setPeselProperties();
             } else {
                 this.pesel.isValid = false;
+                this.pesel.icon = "⛔";
                 this.pesel.verdict = this.dict.invalid;
             }
         }
@@ -140,6 +141,7 @@ export module Pesel {
         }
 
         private setPeselProperties(): void {
+            this.pesel.icon = "✅";
             this.pesel.verdict = this.dict.valid;
             this.pesel.yearShort = this.pesel.value.substring(0, 2);
             this.pesel.century = this.getCentury();
@@ -268,6 +270,7 @@ export module Pesel {
         dayInt!: number;
         dow!: number;
         dowName!: string;
+        icon!: string;
         info!: string;
         isValid!: boolean;
         lang: string;
