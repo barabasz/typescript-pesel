@@ -6,14 +6,14 @@ var language = 'en';
 var pesel = '29511300014';
 var p1 = new Pesel_1.Pesel.Pesel(pesel, language);
 console.log(p1.valid()); // true
-console.log(p1.info()); // 'the PESEL number is correct'
+console.log(p1.info()); // 'the PESEL number is valid ✅'
 console.log(p1.date()); // '2129-11-13'
 console.log(p1.error()); // null
 // invalid PESEL
 pesel = '29513300014';
 var p2 = new Pesel_1.Pesel.Pesel(pesel, language);
 console.log(p2.valid()); // true
-console.log(p2.info()); // 'the PESEL number is correct'
+console.log(p2.info()); // 'the PESEL number is invalid ⛔'
 console.log(p2.date()); // '2129-11-13'
 console.log(p2.error()); // null
 p2.print();
