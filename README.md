@@ -127,10 +127,11 @@ let PeselProperties =  {
 
 ```javascript
 PeselProperties =  {
-    value: '29513300014',
-    lang: 'en',
-    reason: 'incorrect date (2129-11-33)',
+    icon: '⛔',
     isValid: false,
+    lang: 'en',
+    error: 'incorrect date (2129-11-33)',
+    value: '29513300014',
     verdict: 'the PESEL number is invalid'
 }
 ```
