@@ -2,7 +2,7 @@
 
 A very simple TypeScript class for validating [PESEL](https://en.wikipedia.org/wiki/PESEL) numbers - national identification numbers used in Poland since 1979. This class has no external dependencies.
 
-The PESEL number supports birth dates from `1800-01-01` to `2299-12-31` (`YYYY-MM-DD`), contains a serial number, information on the gender of the born person and a checksum.
+The PESEL number supports birthdays from `1800-01-01` to `2299-12-31` (`YYYY-MM-DD`), contains a serial number, information on the gender of the born person and a checksum.
 
 🇵🇱 Zobacz [readme w języku polskim](README_pl.md).
 
@@ -43,7 +43,7 @@ p1.print();              // print all properties to the console
 The [Pesel](./bin/Pesel.ts) class has the following public methods:
 
 - `valid()` - _boolean_: whether the PESEL is valid,
-- `info()` - _string_: human-redeable message whether the PESEL is valid,
+- `info()` - _string_: human-readable message whether the PESEL is valid,
 - `date()` - _string_ in 'YYYY-MM-DD' format on valid PESEL or _null_ otherwise,
 - `error()` - _null_ on valid PESEL, _string_ with explanation of invalidity otherwise,
 - `json()` - _string_ as JSON with all properties on valid PESEL or _null_ otherwise,
@@ -67,7 +67,7 @@ The [PeselProperties](./bin/Pesel.ts) class has the following properties:
 - `year` - _integer_: year from birthdate,
 - `month` - , _string_: month from birthdate,
 - `monthInt` - _integer_: month from birthdate,
-- `monthName` - _string_: name of the month from birthdate,,
+- `monthName` - _string_: name of the month from birthdate,
 - `day` - _string_: two-digits day from birthdate,
 - `dayInt` - _integer_: day from birthdate,
 - `date` - _string_: birthdate in `YYYY-MM-DD` format,
@@ -86,7 +86,7 @@ The [PeselProperties](./bin/Pesel.ts) class has the following properties:
 #### Valid PESEL
 
 ```javascript
-PeselProperties {
+let PeselProperties =  {
     value: '29511300014',
         lang: 'en',
         isValid: true,
@@ -101,7 +101,7 @@ PeselProperties {
         dayInt: 13,
         date: '2129-11-13',
         dateLong: 'November 13, 2129',
-        dateObj: 2129-11-13T00:00:00.000Z,
+        dateObj: '2129-11-13T00:00:00.000Z',
         dow: 0,
         dowName: 'Sunday',
         serial: '0001',
@@ -115,7 +115,7 @@ PeselProperties {
 #### Invalid PESEL
 
 ```javascript
-PeselProperties {
+PeselProperties =  {
     value: '29513300014',
         lang: 'en',
         reason: 'incorrect date (2129-11-33)',
