@@ -14,7 +14,7 @@ let language = 'pl';      // obsługiwane języki: 'pl' (polski) i 'en' (angiels
 
 // poprawny PESEL
 let pesel = '29511300014';
-const p1 = new Pesel.Pesel(pesel, language);
+const p1 = new Pesel.Check(pesel, language);
 
 console.log(p1.valid());   // true
 console.log(p1.verdict()); // 'numer PESEL jest poprawny ✅'
@@ -24,7 +24,7 @@ console.log(p1.error());   // null
 
 // niepoprawny PESEL
 pesel = '29513300014';
-const p2 = new Pesel.Pesel(pesel, language);
+const p2 = new Pesel.Check(pesel, language);
 
 console.log(p2.valid());   // true
 console.log(p2.verdict()); // 'numer PESEL nie jest poprawny ⛔'
